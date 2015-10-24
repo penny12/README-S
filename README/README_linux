@@ -1,0 +1,48 @@
+$ mkdir 01_boot_from_fd_2.6
+$ export KBUILD_OUTPUT=`pwd`/01_boot_from_fd_2.6
+$ echo $KBUILD_OUTPUT
+/home/msakamoto/reduced.linux/01_boot_from_fd_2.6
+$ cd linux-2.6.38.2/
+$ make help
+...
+   # "make O=/foo/bar" としてmakeの都度ディレクトリを指定する方法もありますが、
+   # 今回は使いません。
+...
+$ make allnoconfig
+
+
+  # change target directory
+$ export KBUILD_OUTPUT=...
+$ echo $KBUILD_OUTPUT
+$ cd linux-xxx-xxx-xxx
+$ make allnoconfig
+$ cd ../[target directory]
+$ make menucinfig
+
+---------------------- Raspberry Pi network configure --------------
+
+1. /etc/network/interface
+
+auto lo
+
+iface lo inet loopback
+#iface eth0 inet dhcp
+
+# allow-hotplug wlan0
+# iface wlan0 inet manual
+# wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf
+#iface default inet dhcp
+auto eth0
+iface eth0 inet static
+address 192.168.11.10 # command address
+netmask 255.255.255.0 
+network 192.168.11.0  # router network
+broadcast 192.168.11.255 
+gateway 192.168.11.1  # router gateway
+dns-search pc-links.com
+dns-nameserver 192.168.11.1
+
+2. /etc/resolv.conf
+nameserver 8.8.8.8
+
+3. /etc/init.d/networking restart

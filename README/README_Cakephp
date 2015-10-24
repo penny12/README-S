@@ -1,0 +1,29 @@
+# redirect function 
+
+ -- logout.ctp
+ -- add 'destination' argument
+<?= $this->Html->link(__('Logout'), ['controller' => 'Users', 'action' => 'logout', 'destination'=>'hosts']) ?>
+
+ -- controller
+ -- get -> $this->request->query['destination']
+ -- * get post data -> $this->request->data['Post']['destination']
+public function logout()
+{
+$this->Auth->logout();
+return $this->redirect(['controller' => $this->request->query['destination'], 'action' => 'index']);
+}
+
+# form input default value
+echo $this->Form->input('url', ['value' => $this->request->query['url']]);
+
+# cakephp_v3 sequence save data
+
+for($i = 0; $i < 10; ++$i)
+{
+$detailpage = $this->Detailpages->newEntity($this->request->data('Detailpages'));
+$detailpage = $this->Detailpages->patchEntity($detailpage, $this->request->data);
+
+....
+$this->Detailpages->save($detailpage);
+
+}

@@ -1,0 +1,26 @@
+usage: cocos run [-h] [-s SRC_DIR] [-q] [-p PLATFORM] [--proj-dir PROJ_DIR]
+                 [-m MODE] [-b BROWSER] [--param PARAM] [--port [SERVER_PORT]]
+                 [--host [SERVER_HOST]]
+
+Compiles, deploy and run project on the target.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -s SRC_DIR, --src SRC_DIR
+                        Specify the path of the project.
+  -q, --quiet           Less output
+  -p PLATFORM, --platform PLATFORM
+                        Specify the target platform.
+  --proj-dir PROJ_DIR   Specify the directory for target platform.
+  -m MODE, --mode MODE  Set the run mode, should be debug|release, default is
+                        debug.
+
+web project arguments:
+  -b BROWSER, --browser BROWSER
+                        Specify the browser to open the url. Use the system
+                        default browser if not specified.
+  --param PARAM         after Specify the browser to open the url, add the
+                        browser param.
+  --port [SERVER_PORT]  Set the port of the local web server, defualt is 8000
+  --host [SERVER_HOST]  Set the host of the local web server, defualt is
+                        127.0.0.1

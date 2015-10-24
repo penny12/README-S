@@ -1,0 +1,57 @@
+# create module from source code.
+  ---bad---
+  $ ./apxs -n rewrite -i -a -c /home/prinny12/Downloads/httpd-2.2.29/modules/mappers/mod_rewrite.c
+  --------
+
+  ---better---
+  $ ./apxs -i -a -c /home/prinny12/Downloads/httpd-2.2.29/modules/mappers/mod_rewrite.c
+  -----------
+  
+  # apxs flags
+  # -n (mod name) -i (created module file move apache module directory)
+  # -a (add conf file LoadModule conf text line)
+  # -c (Designation module source code directory)
+
+  # create module mod_ssl
+  $ ./apxs -i -a -c -I/opt/openssl/include -L/opt/openssl/lib -D HAVE_OPENSSL=1 -DOPENSSL_NO_SSL2 -lcrypto -lssl /home/prinny12/Downloads/httpd-2.2.29/modules/ssl/*.c
+
+  ----!!!!----
+  apxs = like gcc ?
+  ------------
+
+  ----error----
+  flag '-DOPENSSL_NO_SSL2' is
+  > undefined symbol: SSLv2_client_method
+  ------------
+
+# web server(Apache2.2.29) install and cakephp3 install
+
+  # apache install
+   - $ ./configure --enable-rewrite --prefix=/xxx/ --enable-ssl
+
+  # php-5.6.10 configure
+
+   -- before actions --
+   chown -R user:group <cakedirectory>
+   --------------------
+
+   -- before install --
+   sudo apt-get install libxml2-dev
+   sudo apt-get install libicu-dev
+   --------------------
+   
+   - $ ./configure --disable-debug --with-apxs2=/opt/apache2/bin/apxs --enable-trans-sid --with-iconv --enable-mbstring --enable-zend-multibyte --without-mysql --with-mysqli --enable-intl --with-pdo-mysql
+     $ make
+     $ make test
+     $ make install
+
+     ####!!!!####
+
+     cakephp error
+
+     Database driver Cake\Database\Driver\Mysql cannot be used due to a
+     missing PHP extension or unmet dependency Cake\Database\Exception\MissingExtensionException
+
+     -> php reconfig add --with-pdo-mysql flag
+
+     ####!!!!####

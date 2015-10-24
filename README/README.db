@@ -1,0 +1,65 @@
+#### add new database and table data
+
+$ mysql -u root -p
+mysql > create database locome_db
+mysql > quit
+$ mysql locome_db -u root -p < dump.sql
+
+#### composer create cakephp project
+
+php composer.phar create-project --prefer-dist cakephp/app xxx
+
+#### goutte install
+$ php composer.phar create-project --prefer-dist cakephp/app xxx
+$ cp composer.phar ./xxx/
+$ cd ./xxx
+
+!!! important !!!
+
+YOU SHOULD STOP APACHECTL!!!
+BUT, YOU CAN'T UPDATE COMPOSER!!!
+
+$ apachectl stop
+
+!!!!!!!!!!!!!!!!!
+
+$ php ./composer.phar update
+$ php ./composer.phar require fabpot/goutte:~2.0
+
+
+# great create directory command
+mkdir -p /etc/skel/Maildir/{new,cur,tmp}
+
+# stop sendmail
+  /etc/init.d/sendmail stop
+  service sendmail stop
+  -> double use!
+
+# file location
+  $ locate xxx <- xxx is filename
+
+# find program
+  $ which gcc
+  /usr/bin/gcc <- gcc location is /usr/bin/gcc
+
+# update-alternatives is change current program file.
+  update-alternatives --config java
+
+  selection alternative
+  ----------------------------------------
+  1   /usr/bin/gij-4.2
+  2   /usr/lib/jvm/java-gcj/jre/bin/java
+
+# netstat dynamic show tcp connection
+  $ netstat -an -tcp
+
+  -> another shell
+
+  $ apachectl stop
+  $ apachectl start
+
+# postfix
+
+１．送信されてきたメールアドレスの"@"以降を"mydestination"ディレクティブの内容と比較し、一致するものがあればサーバー自身のアカウント宛にメールデータを書き込む。
+
+２．"mydestination"ディレクティブの内容と一致しなかった場合はDNSサーバーを参照して送信先のメールサーバーを探す。

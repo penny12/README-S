@@ -1,0 +1,69 @@
+YOUR BEST DEVELOP MENT IS USE C++!!!!
+ANOTHER LANGUAGE IS DON'T USE FOR YOU!!!!
+
+# create server
+1. install apache.
+2. use sftp for file upload.
+3. change documentroot's own.
+4. get domain after config DNS.
+5. install php.
+
+--------------- ubuntu 14.04 server (amd64) -------------------
+
+1. install apache
+   1 - install apache source code 2.2.3x from web site.
+   2 - shoot under the command.
+     -> $ sudo apt-get install libssl-dev
+        $ sudo apt-get install libicu-dev
+	$ sudo apt-get install g++, gcc, mysql-server-5.6
+	$ ln -s /usr/lib/x86_64-linux-gnu/libssl3.so /usr/lib/libssl.so
+	$ ./configure --prefix=/usr/local/www/php/ --with-apxs2=/usr/local/www/apache2/bin/apxs --with-mysql --with-openssl=/usr --with-openssl-dir=/usr/lib --enable-mbstring --enable-opcache --with-mcrypt --enable-intl --with-pdo-mysql --enable-mysqlnd
+
+	e.g. quicca apache sample configure)
+	./configure --disable-fileinfo --enable-bcmath --enable-calendar --enable-ftp --enable-gd-native-ttf --enable-libxml --enable-magic-quotes --enable-mbstring --enable-pdo=shared --enable-soap --enable-sockets --enable-zip --prefix=/usr/local/www/php --with-freetype-dir=/usr --with-gd --with-imap=/opt/php_with_imap_client/ --with-imap-ssl=/usr --with-jpeg-dir=/usr --with-kerberos --with-libdir=lib64 --with-libexpat-dir=/usr --with-libxml-dir=/opt/xml2 --with-libxml-dir=/opt/xml2/ --with-mcrypt=/opt/libmcrypt/ --with-mysql=/usr --with-mysql-sock=/var/lib/mysql/mysql.sock --with-mysqli=/usr/bin/mysql_config --with-openssl=/usr --with-openssl-dir=/usr --with-pcre-regex=/opt/pcre --with-pdo-mysql=shared --with-pdo-sqlite=shared --with-pic --with-png-dir=/usr --with-sqlite=shared --with-xmlrpc --with-xpm-dir=/usr --with-zlib --with-zlib-dir=/usr --enable-intl --enable-icu
+
+	==== DNS now state ====
+	www.evelinks.org <- sakura.vps nameserver
+	www.musacopel.com <- onamae.com nameserver
+	|
+	> this is not good.
+	  i should use free nameserver(DNS[Domain name system] server).
+	  
+  
+2. use sftp for file upload.
+   $ apt-get install sftp
+   or installed first boot.
+   
+3. change documentroot's own.
+   now nothing
+
+4. get domain after config DNS.
+   4-1. get domain from domain service. domain service usually have DNS server(name server). i sign up domain service and sign up my local IP address.
+   e.g. ) domain : xxx.evelinks.org
+   	  local IP address : 168.34.123.333
+	  sign up local IP to domain service DNS server.
+	  YOU MAST SIGN UP "Whois情報公開代行設定" !!!!!
+	  this is great important things !
+	  if you don't execute open your information from web !!!!
+
+   4-2. each sign up service and each config DNS service.
+   
+5. install php.
+   $ sudo apt-get install libmcrypt-dev
+   $ export LDFLAGS="/usr/lib:$LDFLAGS" CPPFLAGS="/usr/include:$CPPFLAGS" | ./configure --prefix=/usr/local/apache2/php/ --with-apxs2=/usr/local/apache2/apache2/bin/apxs --with-mysql --with-openssl=/usr/local/apache2/openssl --enable-mbstring --enable-opcache --with-mcrypt --enable-intl --with-pdo-mysql --enable-mysqlnd
+
+  ---------- if connection error ----------
+
+  Database driver Cake\Database\Driver\Mysql cannot be used due to a missing PHP extension or unmet dependency
+  Cake\Database\Exception\MissingExtensionException
+
+  add follow flags
+
+  --with-pdo-mysql PDO: MySQL support. DIR is the MySQL base directory
+  --enable-mysqlnd Enable mysqlnd explicitly, will be done implicitly
+		   when required by other extensions
+
+  -----------------------------------------
+
+  
+
