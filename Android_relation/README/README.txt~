@@ -1,0 +1,5 @@
+# create cocos2dx new project 
+cocos new hello -l cpp -p test.test.hello -d .
+
+# android emulator debugging tool logcat
+~/local/sdk/android-sdk/platform-tools/adb logcat > ~/hobby/SmartPhone/MyCompany/MyGame/proj.android/android_2_log

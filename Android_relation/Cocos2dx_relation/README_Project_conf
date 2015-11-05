@@ -1,0 +1,9 @@
+# android device change landscape mode
+-> AndroidManufest.xml in
+<activity
+ ......
+ android:screenOrientation="portrait"
+ .......
+ 
+# if nothing error but application killed check
+# suspect is 'resource data location path'

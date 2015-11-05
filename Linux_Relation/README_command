@@ -1,0 +1,54 @@
+# great create directory command
+mkdir -p /etc/skel/Maildir/{new,cur,tmp}
+
+# stop sendmail
+  /etc/init.d/sendmail stop
+  service sendmail stop
+  -> double use!
+
+# file location
+  $ locate xxx <- xxx is filename
+
+# find program
+  $ which gcc
+  /usr/bin/gcc <- gcc location is /usr/bin/gcc
+
+# update-alternatives is change current program file.
+  update-alternatives --config java
+
+  selection alternative
+  ----------------------------------------
+  1   /usr/bin/gij-4.2
+  2   /usr/lib/jvm/java-gcj/jre/bin/java
+
+# netstat dynamic show tcp connection
+  $ netstat -an -tcp
+
+  -> another shell
+
+  $ apachectl stop
+  $ apachectl start
+
+------------ rename regex ---------------
+# -v = verbose display what you are doing on screen
+# -> show execute result on display
+# -n = not execute this command
+# $ rename -v -n 's/HelloWorld/Splash/' ./Hello*
+# if execute command and show result under command
+$ rename -v 's/HelloWorld/Splash/' ./Hello*
+# if only execute command under command
+$ rename 's/HelloWorld/Splash/' ./Hello*
+---------- end rename regex ---------
+
+--------- replace a string multiple file in linux --------------
+---------           Using grep & sed              --------------
+# first Basic format ->
+$ grep -rl 'iphone/' ./ | xargs sed -i 's/iphone\///g'
+# verbose and not execute command ->
+$ grep -v -n -rl matchstring somedir/ | xargs sed -v -n -i 's/string1/string2/g'
+# actually execute command ->
+$ grep -rl matchstring somedir/ | xargs sed -i 's/string1/string2/g'
+** xargs is create command after marge first command result ( standard input )
+** "grep -rl matchstring somedir/ | xargs sed -i 's/string1/string2/g'" result is
+   -> sed -i 's/string1/string2/g' test1.txt test2.txt test3.txt .....
+--------- end replace a string multiple file in linux ----------

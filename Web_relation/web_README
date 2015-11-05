@@ -1,0 +1,26 @@
+# DNS(host) recode config <- host server name server address.
+  * if quicca server <- nameserver 'ns1.quicca.com' (dns recode config -> 1xx.xxx.xxx.xxx)
+  * if google server <- nameserver 'ns1.google.com' (dns recode config -> 1xx.xxx.xxx.xxx)
+
+# apache configure
+./configure --prefix=/usr/local/apache2/apache2 --enable-ssl --with-ssl=/usr --enable-rewrite --enable-modules="so ssl"
+
+ after compile php
+ ./config --with-apxs2=/usr/local/apache2/bin/apxs --with-mysql
+
+ after add apache config file
+
+<FilesMatch \.php$>
+    SetHandler application/x-httpd-php
+</FilesMatch>
+
+<FilesMatch "\.ph(p[2-6]?|tml)$">
+    SetHandler application/x-httpd-php
+</FilesMatch>
+
+<FilesMatch "\.phps$">
+    SetHandler application/x-httpd-php-source
+</FilesMatch>
+
+RewriteEngine On
+RewriteRule (.*\.php)s$ $1 [H=application/x-httpd-php-source]

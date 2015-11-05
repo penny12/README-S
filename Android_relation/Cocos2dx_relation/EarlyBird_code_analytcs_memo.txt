@@ -1,0 +1,23 @@
+EarlyBird is created cocos2dx version 2.
+cant use 2d library.
+
+# EarlyBird load map
+
+# start program is
+AddDelegate::applicationDidFinishLaunching()
+->LoadingScene::create();
+->LoadingScene::init();
+->LoadingScene::onEnter();
+code : Derector::getInstance()->getTextureCache()->addImageAsync("atlas.png", CC_CALLBACK_1(LoadingScene::loadingCallBack, this));
+->LoadingScene::loadingCallBack(Texture2D *texture);
+->WelcomeScene::create();
+## TransitionFade::create(1, scene);
+## this scequence is create fade scene to next scene?
+  //////////////////////////////////////////////////////////////////////////////
+  // replace next pattern                                                     //
+  // TransitionScene *transition = TransitionFade::create(1, scene);          //
+  // Director::getInstance()->replaceScene(transition);                       //
+  // | one linerer;                                                           //
+  // Director::getInstance()->replaceScene(TransitionFade::create(1,scene));  //
+  //////////////////////////////////////////////////////////////////////////////
+->WelcomeScene::init();

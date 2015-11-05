@@ -1,0 +1,12 @@
+1. create each scenes code files.
+2. add Android.mk created code files to
+   LOCAL_SRC_FILES
+
+3. edit SplashScene
+   -> add backgroundSprite texture
+   -> config backgroundSprite disappere time
+      #define DISPLAY_TIME_SPLASY_SCENE 2
+      -> show display 2 seconds time.
+   ->addChild(backgroundSprite);
+   ->implement GoToMainMenuScene();
+

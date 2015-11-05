@@ -72,6 +72,8 @@ ADB=/home/iceman/local/sdk/android-sdk/platform-tools/adb
 
 ----------- end bash file -------------
 
+----------- crate new project --------
+
 # create cocos2dx new project 
 $ cocos new hello -l cpp -p test.test.hello -d .
 
@@ -89,6 +91,8 @@ $ adb uninstall <package name>
 # transport android emulator to android application (transport *.apk file to emulator)
 # transport application to current running emulator.
 $ adb install <*.apk path>
+
+----------end create cocos project ---------------
 
 ------------------ Create NDK Projects -----------------------------------
 

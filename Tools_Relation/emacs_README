@@ -1,0 +1,2 @@
+# emacs fullscreen from command line
+$ emacs --fullscreen

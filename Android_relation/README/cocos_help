@@ -1,0 +1,24 @@
+
+/home/iceman/local/sdk/cocos2d-x-3.8.1/tools/cocos2d-console/bin/cocos.py 2.0 - cocos console: A command line tool for cocos2d-x.
+
+Available commands:
+	run              Compiles, deploy and run project on the target.
+	gen-libs         Generate prebuilt libs of engine. The libs will be placed in 'prebuilt' folder of the engine root path.
+	luacompile       Encrypt and/or compile lua files.
+	deploy           Compile and deploy a project to a device/simulator.
+	package          Manage package for cocos.
+	compile          Compile projects to binary.
+	framework        Manage frameworks for the project.
+	gen-simulator    Generate Cocos Simulator.
+	new              Creates a new project.
+	jscompile        Compile and/or compress js files.
+	gen-templates    Generate templates for Cocos Framework.
+
+Available arguments:
+	-h, --help			Show this help information.
+	-v, --version			Show the version of this command tool.
+	--ol ['en', 'zh', 'zh_tr']	Specify the language of output messages.
+
+Example:
+	cocos new --help
+	cocos run --help

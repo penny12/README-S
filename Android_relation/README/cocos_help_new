@@ -1,0 +1,32 @@
+usage: cocos new [-h] [-p PACKAGE_NAME] -l {cpp,lua,js} [-d DIRECTORY]
+                 [-t TEMPLATE_NAME] [--ios-bundleid IOS_BUNDLEID]
+                 [--mac-bundleid MAC_BUNDLEID] [-e ENGINE_PATH] [--portrait]
+                 [--no-native]
+                 [PROJECT_NAME]
+
+Creates a new project.
+
+positional arguments:
+  PROJECT_NAME          Set the project name.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -p PACKAGE_NAME, --package PACKAGE_NAME
+                        Set a package name for project.
+  -l {cpp,lua,js}, --language {cpp,lua,js}
+                        Major programming language you want to use, should be [cpp
+                        | lua | js]
+  -d DIRECTORY, --directory DIRECTORY
+                        Set the path where to place the new project.
+  -t TEMPLATE_NAME, --template TEMPLATE_NAME
+                        Set the template name you want create from.
+  --ios-bundleid IOS_BUNDLEID
+                        Set a bundle id for iOS project.
+  --mac-bundleid MAC_BUNDLEID
+                        Set a bundle id for Mac project.
+  -e ENGINE_PATH, --engine-path ENGINE_PATH
+                        Set the path of engine.
+  --portrait            Set the project be portrait.
+
+lua/js project arguments:
+  --no-native           Create the project without native support.

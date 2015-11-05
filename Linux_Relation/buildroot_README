@@ -1,0 +1,37 @@
+sudo mkisofs -o output2.iso -b isolinux/isolinux.bin -c isolinux/boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table cdimage
+
+# buildroot configure parameter ( target architecture i386 [core i5] )
+
+  * target options
+  Target options->Target Architecture(i386)
+  Target options->Target Binary Format(ELF)
+  Target options->Target Architecture Variant(i686)
+
+  * Toolchain 
+  Toolchain->Kernel Headers->Manually specified Linux version
+  Toolchain->linux version(2.6.32.67)
+  Toolchain->C library(uClibc)
+  Toolchain->uClibc C library Version(uClibc-ng)
+
+  * System configuration
+  System configuration->/dev management(Dynamic using devtmpfs only)
+  System configuration->Path to the permission tables(system/device_table_dev.txt)
+  System configuration->Enable root login with password=y
+
+  * Kernel
+  Kernel->Linux Kernel=y
+  Kernel->Linux Kernel->Kernel version(Same as toolchain kernel headers)
+  --------------warning--------------
+  kernel version 2.6.32.67 is not exist kernel.org url.
+  begin downloaded 'dl' directory from linux.kernel.org.
+  -----------------------------------
+  Kernel->Kernel configuration(Using an in-tree defconfig file)
+  Kernel->Defconfig name(i386)
+
+  * Filesystem images
+  Filesystem images->cpio the root filesystem=y->Compression method(gzip)
+
+  ------------End----------------------
+
+  And if you need other options, check options.
+  
